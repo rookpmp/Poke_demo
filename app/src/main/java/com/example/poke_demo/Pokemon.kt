@@ -30,3 +30,12 @@ class TypeInfo(
 class Sprites(
     val front_default: String
 )
+
+data class PokemonResponse(
+    val results: List<PokemonEntry>
+)
+
+data class PokemonEntry(
+    val name: String,
+    val url: String
+)
