@@ -1,11 +1,32 @@
 package com.example.poke_demo
 
-class Pokemon {
-    val nome: String = ""
-    val hp: Int = 0
-    val atk: Int = 0
-    val dfs: Int = 0
-    val spd: Int = 0
-    val spAtk: Int = 0
+class Pokemon (
+    val id: Int,
+    val name: String,
+    val height: Int,
+    val weight: Int,
+    val stats: List<Stat>,
+    val types: List<TypeSlot>,
+    val sprites: Sprites
+)
 
-}
+class Stat(
+    val base_stat: Int,
+    val stat: StatInfo
+)
+
+class StatInfo(
+    val name: String
+)
+
+class TypeSlot(
+    val type: TypeInfo
+)
+
+class TypeInfo(
+    val name: String
+)
+
+class Sprites(
+    val front_default: String
+)
