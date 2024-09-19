@@ -12,7 +12,9 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -22,8 +24,16 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import java.util.Locale
 
@@ -75,15 +85,26 @@ fun PokemonListScreen(navController: NavController, viewModel: PokemonViewModel)
 
 @Composable
 fun PokemonListItem(pokemon: PokemonEntry, onClick: () -> Unit) {
+
     Card(
+        colors = CardDefaults.cardColors(
+            containerColor = Color(0xFF4052D9)
+        ),
+        elevation = CardDefaults.cardElevation(
+            defaultElevation = 6.dp
+        ),
         modifier = Modifier
             .fillMaxWidth()
-            .padding(8.dp)
+            .padding(horizontal = 30.dp, vertical = 10.dp)
             .clickable { onClick() }
     ) {
         Text(
             text = pokemon.name.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.ROOT) else it.toString() },
-            modifier = Modifier.padding(16.dp)
+            modifier = Modifier.padding(16.dp).align(alignment = Alignment.CenterHorizontally),
+            fontSize = 25.sp,
+            fontWeight = FontWeight.SemiBold,
+            letterSpacing = TextUnit(1.5F, TextUnitType.Sp),
+            color = Color(0xFFFFE031),
         )
     }
 }
