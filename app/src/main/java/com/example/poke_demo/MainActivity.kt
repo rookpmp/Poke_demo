@@ -12,9 +12,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.poke_demo.ui.theme.Poke_demoTheme
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -26,7 +28,7 @@ class MainActivity : ComponentActivity() {
     private val viewModel: PokemonViewModel by viewModels {
         PokemonViewModelFactory(PokemonRepository(NetworkModule.api))
     }
-
+    //no mainActivity declaramos a navegacao para os ecras
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -35,10 +37,20 @@ class MainActivity : ComponentActivity() {
 
             NavHost(
                 navController = navController,
-                startDestination = "pokemon_list",
+                startDestination = "pokemon_list", //app inicia no ecra lista
                 builder = {
                     composable("pokemon_list") {
                         PokemonListScreen(navController, viewModel)
+                    }
+
+                    composable("pokemon_detail/{id}",
+                        arguments = listOf(
+                            navArgument("id") {type = NavType.IntType}
+                        )
+                    ) {
+                        backStackEntry ->
+                        val id = backStackEntry.arguments?.getInt("id") ?: -1
+                        PokemonDetailScreen(id, navController, viewModel)
                     }
                 }
             )
