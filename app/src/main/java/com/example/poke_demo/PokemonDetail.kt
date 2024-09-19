@@ -123,15 +123,18 @@ fun PokemonDetailScreen(id: Int, navController: NavController, viewModel: Pokemo
             ){
                 Text(
                     text = "Height: ${it.height}",
-                    modifier = Modifier.padding(8.dp)
+                    modifier = Modifier.padding(vertical = 8.dp, horizontal = 6.dp),
+                    fontSize = 18.sp
                 )
                 Text(
-                    text = "Type: ${it.types.joinToString { type -> type.type.name }}",
-                    modifier = Modifier.padding(8.dp)
+                    text = "Type: ${it.types.joinToString { type -> type.type.name.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.ROOT) else it.toString() } }}",
+                    modifier = Modifier.padding(vertical = 8.dp, horizontal = 4.dp),
+                    fontSize = 18.sp
                 )
                 Text(
                     text = "Weight: ${it.weight}",
-                    modifier = Modifier.padding(8.dp)
+                    modifier = Modifier.padding(vertical = 8.dp, horizontal = 6.dp),
+                    fontSize = 18.sp
                 )
             }
 
