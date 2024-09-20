@@ -9,8 +9,10 @@ Este é um projeto de uma aplicação **Pokédex** construída com **Kotlin** e 
 
 ## Screenshots
 
-<img alt ="Ecrã Lista de Pokémon" src="https://github.com/user-attachments/assets/68ce4ad2-fd33-42db-97bf-a360656a03da" width="400px">
-<img alt ="Ecrã Detalhe de Pokémon" src="https://github.com/user-attachments/assets/e401eb97-9d21-4c8b-aba3-459ae7b3df4b" width="400px">
+<img alt ="Ecrã Lista de Pokémon" src="https://github.com/user-attachments/assets/68ce4ad2-fd33-42db-97bf-a360656a03da" width="333px">
+<img alt ="Ecrã Detalhe de Pokémon" src="https://github.com/user-attachments/assets/e401eb97-9d21-4c8b-aba3-459ae7b3df4b" width="333px">
+<img alt="GIF demonstração da App" src="https://github.com/user-attachments/assets/3754449d-992f-48de-9db8-9ae3a37e53ab" width="333px">
+
 
 
 ## Tecnologias Utilizadas
